@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--Bootstrap -->
+    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-2 text-center">Train Schedule</h1>
+        <h5 class="text-center">Up to date Train Info</h5>
+    </div>
+
+    <!--Form -->
+    <div class="form">
+        <h3>Search for Train:</h3>
+        <hr>
+            <form>
+                <!-- Row 1 -->
+                <div class="row">
+                    <div class="col">
+                        <label for="train-name">Train Name</label>
+                        <input type="text" class="form-control" id="train-name">
+                    </div>
+                    <div class="col">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination">
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row">
+                    <div class="col">
+                        <label for="train-time">First Train Time (HH:mm - Military Time)</label>
+                        <input type="text" class="form-control" id="train-time">
+                    </div>
+                    <div class="col">
+                        <label for="frequency">Frequency (min)</label>
+                        <input type="text" class="form-control" id="frequency">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+
+                <button id="submit-btn" type="button" class="btn btn-light">Submit</button>
+
+            </form>
+    </div>
+
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<!-- JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<!-- JS -->
+<script src="assets/javascript/train.js"></script>
+    
+</body>
+</html>
