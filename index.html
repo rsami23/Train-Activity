@@ -6,6 +6,12 @@
     <title>Train Schedule</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- FireBase -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+    <!-- Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <!--Bootstrap -->
     <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
@@ -16,6 +22,7 @@
 <body>
 
 <div class="container">
+
     <div class="jumbotron">
         <h1 class="display-2 text-center">Train Schedule</h1>
         <h5 class="text-center">Up to date Train Info</h5>
@@ -23,9 +30,14 @@
 
     <!--Form -->
     <div class="form">
-        <h3>Search for Train:</h3>
-        <hr>
+
+        <div class="card-heading">
+            <h3 class="card-title">Add Train:</h3>
+            <hr>
+        </div>
+
             <form>
+
                 <!-- Row 1 -->
                 <div class="row">
                     <div class="col">
@@ -41,20 +53,60 @@
                 <!-- Row 2 -->
                 <div class="row">
                     <div class="col">
-                        <label for="train-time">First Train Time (HH:mm - Military Time)</label>
+                        <label class="second-row" for="train-time">First Train Time (HH:mm - Military Time)</label>
                         <input type="text" class="form-control" id="train-time">
                     </div>
                     <div class="col">
-                        <label for="frequency">Frequency (min)</label>
+                        <label class="second-row" for="frequency">Frequency (min)</label>
                         <input type="text" class="form-control" id="frequency">
-                    </div>
+                    </div>  
                 </div>
 
-                <!-- Submit Button -->
+                <div class="row">
+                    <div class="col">
+                        <button id="submit-btn" type="button" class="btn btn-light">Submit</button>
+                    </div>
+                    <div class="col">
+                        <button id="show-btn" type="button" class="btn btn-light">Show Real-Time Schedule</button>
+                    </div>
+                </div>
+                
 
-                <button id="submit-btn" type="button" class="btn btn-light">Submit</button>
+                <!-- Buttons -->
+
+                
+                
+
 
             </form>
+    </div>
+
+    <div class="schedule">
+
+        <div class="card-heading">
+            <h3 class="card-title">Train Schedule</h3>
+            <hr>
+        </div>
+
+        <div class="row">
+            <!-- Train Schedule -->
+            <table class="table table-hover" id="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Train Name</th>
+                        <th>Destination</th>
+                        <th>Frequency</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes Away</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+
+        </div>
+
     </div>
 
 </div>
