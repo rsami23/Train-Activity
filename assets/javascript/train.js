@@ -57,20 +57,41 @@ var config = {
         var trainTime = childSnapshot.val().time;
         var frequency = childSnapshot.val().trainFrequency;
 
-        // Format Time (moment)
-        var momentTime = moment.unix(trainTime).format("HH:mm");
+        // Train first arrival
+        var firstTime = trainTime;
+        
+        // Time coverted 
+        var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
 
-        var momentFrequency = moment.unix(frequency).format("mm");
+        // Current time
+        var currentTime = moment();
+
+        // Difference between times
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        console.log(diffTime);
         
 
-        // Calculate the train next arrival
-        var nextArrival = parseInt(trainTime + frequency);
+        // Time apart
+        var tRemainder = diffTime % frequency;
+
+        // Minutes Away
+        var minutesAway = frequency - tRemainder;
+
+        // Arrival time
+        // var momentTime = moment.unix(trainTime).format("HH:mm");
+        var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm");
+
+        // var momentFrequency = moment.unix(frequency).format("mm");
+        
+
+        // // Calculate the train next arrival
+        // var nextArrival = parseInt(trainTime + frequency);
         
 
         // Calculate the train time away
 
         // Add the data to the table
-        $("#schedule-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td></tr>")
+        $("#schedule-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + (frequency + " minutes") + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
         
     })
 
